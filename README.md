@@ -49,8 +49,3 @@ async def on_ready():
 bot.run('your-bot-token')
 ```
 
----
-
-*Happy Logging!*
-
-
