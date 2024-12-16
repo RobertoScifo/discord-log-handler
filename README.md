@@ -17,7 +17,7 @@ pip install git+https://github.com/RobertoScifo/loggord
 
 ## Usage
 
-### Example: Sending Logs Using a Webhook
+### Sending Logs Using a Webhook
 
 ```python
 import logging
@@ -32,7 +32,7 @@ logger.addHandler(handler)
 logger.error('This is a test error message!')
 ```
 
-### Example: Sending Logs Using a Bot
+### Sending Logs Using a Bot
 
 ```python
 from discord.ext import commands
