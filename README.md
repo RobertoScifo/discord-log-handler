@@ -1,8 +1,7 @@
-# Discord Log Handler
+# Loggord (Discord Log Handler)
 
 ## Overview
-`discord-log-handler` is a Python library providing a custom logging handler for dispatching log messages to Discord channels. 
-You can send logs via a Discord bot or a webhook, offering flexibility for integrating Discord as a logging endpoint.
+`loggord` is a Python library providing a custom logging handler for dispatching log messages to Discord channels. 
 
 ### Features
 - Dispatch logs to Discord channels using either a bot or a webhook url.
@@ -13,7 +12,7 @@ You can send logs via a Discord bot or a webhook, offering flexibility for integ
 Install the package directly from GitHub:
 
 ```bash
-pip install git+https://github.com/RobertoScifo/discord-log-handler
+pip install git+https://github.com/RobertoScifo/loggord
 ```
 
 ## Usage
@@ -22,7 +21,7 @@ pip install git+https://github.com/RobertoScifo/discord-log-handler
 
 ```python
 import logging
-from discord_log_handler import DiscordLogHandler
+from loggord import DiscordLogHandler
 
 # Configure logger
 logger = logging.getLogger('example')
@@ -37,13 +36,17 @@ logger.error('This is a test error message!')
 
 ```python
 from discord.ext import commands
-from discord_log_handler import configure_logging
+from loggord import configure_discord_logging
 
 bot = commands.Bot(command_prefix='!')
 
 @bot.event
 async def on_ready():
-    configure_logging('bot_logger', bot=bot, channel_id=123456789012345678)
+    configure_discord_logging(
+        name='bot_logger',
+        bot=bot,
+        channel_id=123456789012345678
+    )
     logger.info('Bot is ready!')
 
 bot.run('your-bot-token')

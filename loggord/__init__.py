@@ -1,4 +1,4 @@
-from handler import (
+from .handler import (
     DiscordLogHandler,
     configure_discord_logging
 )
